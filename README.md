@@ -15,7 +15,7 @@ Then simply clone your newly created project.
 * [CMake 3.14](https://cmake.org/) or newer
 
 ### Fix your GitHub Workflows
-Due to some weird behaviour in the `checkout` action the `Build (GCC/Clang/MSVC)` action, which automatically checks compatibility of your project with GCC, Clang and MSVC, will fail initially if the name of your project is not `Auto-Vk-Starter`. To fix this issue, simply replace all occurrences of `Auto-Vk-Starter` with the name of your new project in the workflow file (`.github/workflows/build.yml`).
+Due to some weird behaviour in the `checkout` action within the `Build (GCC/Clang/MSVC)` action, which automatically checks compatibility of your project with GCC, Clang and MSVC, will fail initially if the name of your project is not `Auto-Vk-Starter`. To fix this issue, simply replace all occurrences of `Auto-Vk-Starter` with the name of your new project in the workflow file (`.github/workflows/build.yml`).
 
 ## Build & Run
 
