@@ -7,7 +7,6 @@ add_executable(Auto_Vk_Starter src/main.cpp)
 
 # Auto-Vk
 include(cmake/avk.cmake)
-target_include_directories(${PROJECT_NAME} PUBLIC ${auto-vk_SOURCE_DIR}/include)
 target_link_libraries(${PROJECT_NAME} PUBLIC avk)
 
 # Vulkan
