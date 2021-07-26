@@ -2,10 +2,6 @@ name: "Build (GCC/Clang/MSVC)"
 
 on:
   push:
-    paths:
-      - 'include/**'
-      - 'src/**'
-      - 'CMakeLists.txt'
   pull_request:
   schedule:
     - cron: '0 0 1 * *'
