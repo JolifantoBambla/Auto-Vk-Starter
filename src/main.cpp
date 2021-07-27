@@ -46,7 +46,17 @@ class my_root : public avk::root {
         vkGetInstanceProcAddr,
         device());
 
-      mMemoryAllocator = {mPhysicalDevice, mDevice.get()};
+#if defined(AVK_USE_VMA)
+      // With everything in place, create the memory allocator:
+      VmaAllocatorCreateInfo allocatorInfo = {};
+      allocatorInfo.physicalDevice = physical_device();
+      allocatorInfo.device = device();
+      allocatorInfo.instance = vulkan_instance();
+      // you might want to set some flags via allocatorInfo.flags
+      vmaCreateAllocator(&allocatorInfo, &mMemoryAllocator);
+#else
+      mMemoryAllocator = {physical_device(), device()};
+#endif
     }
     return mDevice.get();
   }
@@ -58,7 +68,7 @@ class my_root : public avk::root {
     return mDynamicDispatch;
   }
 
-  std::tuple<vk::PhysicalDevice, vk::Device> &memory_allocator() override {
+  AVK_MEM_ALLOCATOR_TYPE& memory_allocator() override {
     return mMemoryAllocator;
   }
 
@@ -74,7 +84,7 @@ class my_root : public avk::root {
   vk::PhysicalDevice mPhysicalDevice;
   vk::UniqueDevice mDevice;
   vk::DispatchLoaderDynamic mDynamicDispatch;
-  std::tuple<vk::PhysicalDevice, vk::Device> mMemoryAllocator;
+  AVK_MEM_ALLOCATOR_TYPE mMemoryAllocator;
   avk::queue mQueue;
 };
 

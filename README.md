@@ -30,6 +30,10 @@ Make sure you have installed [CMake tools for Visual Studio](https://docs.micros
 
 Open the directory which contains your project with Visual Studio, wait for Visual Studio to run the `CMake` configuration and then select `Auto_Vk_Starter.exe`/`<Your Project Name>.exe` as `Startup Item` and run it by pressing the "play" button.
 
+## Memory Allocation
+If you want to enable [VMA for Auto-Vk](https://github.com/cg-tuwien/Auto-Vk#memory-allocation) all you need to do is set the `avkStarter_UseVMA` (`CMake`) option to `ON`.
+This will automatically `#define AVK_USE_VMA`, so you don't need to set it explicitly in your source files.
+
 ## Found a bug?
 If you found a bug in the template (i.e. in the provided `src/main.cpp`, the `CMake` or GitHub workflow files) please open an issue directly in the template project.
 
