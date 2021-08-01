@@ -112,6 +112,10 @@ jobs:
 
           cmake -E make_directory ${{ runner.workspace }}/${{ github.event.repository.name }}/build
 
+      - name: log stuff
+        shell: bash
+        run: ls ${{ runner.workspace }} && ls ${{ runner.workspace }}/${{ github.event.repository.name }}
+
       - name: Configure CMake
         # Use a bash shell so we can use the same syntax for environment variable
         # access regardless of the host operating system
