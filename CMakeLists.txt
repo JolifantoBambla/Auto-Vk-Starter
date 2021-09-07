@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 3.14)
 project(Auto_Vk_Starter)
 
-set(CMAKE_CXX_STANDARD 23)
+if (MSVC)
+    # <ranges> support requires /std:c++latest on MSVC
+    set(CMAKE_CXX_STANDARD 23)
+else (MSVC)
+    set(CMAKE_CXX_STANDARD 20)
+endif (MSVC)
 
 option(avkStarter_UseVMA "Use Vulkan Memory Allocator (VMA) for custom memory allocation." OFF)
 if (${avkStarter_UseVMA})
