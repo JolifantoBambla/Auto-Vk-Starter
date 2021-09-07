@@ -73,7 +73,7 @@ jobs:
       - name: Build
         shell: bash
         working-directory: ${{ runner.workspace }}/build
-        run: cmake --build . --config $BUILD_TYPE
+        run: cmake --build .
 
   windows:
     name: ${{ matrix.config.name }}
@@ -127,4 +127,4 @@ jobs:
       - name: Build
         shell: bash
         working-directory: ${{ runner.workspace }}/${{ github.event.repository.name }}/build
-        run: cmake --build . --config $BUILD_TYPE
+        run: cmake --build .
